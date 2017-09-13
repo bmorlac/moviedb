@@ -1,6 +1,6 @@
 export default `
   enum Format {
-    DVD, BLUERAY, VHS, DIGITAL, OTHER
+    DVD, BLURAY, VHS, DIGITAL, OTHER
   }
 
   type Movie {
