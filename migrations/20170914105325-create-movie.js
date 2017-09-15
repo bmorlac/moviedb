@@ -30,7 +30,8 @@ export default {
     },
     imbdbLink: Sequelize.STRING,
     format: {
-      type: Sequelize.STRING(7),
+      type: Sequelize.ENUM,
+      values: ['DVD', 'BLURAY', 'VHS', 'DIGITAL', 'OTHER'],
       allowNull: false,
     },
   }),

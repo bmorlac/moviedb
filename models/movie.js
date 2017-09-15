@@ -16,7 +16,8 @@ export default (sequelize, DataTypes) => {
     },
     imbdbLink: DataTypes.STRING,
     format: {
-      type: DataTypes.STRING(7),
+      type: DataTypes.ENUM,
+      values: ['DVD', 'BLURAY', 'VHS', 'DIGITAL', 'OTHER'],
       allowNull: false,
     },
   });
