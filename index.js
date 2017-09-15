@@ -5,6 +5,7 @@ import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 
 import typeDefs from './schema';
 import resolvers from './resolvers';
+import models from './models';
 
 const schema = makeExecutableSchema({
   typeDefs,

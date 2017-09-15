@@ -14,7 +14,9 @@
     "express": "^4.15.4",
     "graphql": "^0.11.3",
     "graphql-server-express": "^1.1.2",
-    "graphql-tools": "^1.2.2"
+    "graphql-tools": "^1.2.2",
+    "pg": "^7.3.0",
+    "sequelize": "^4.8.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -23,6 +25,7 @@
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
-    "nodemon": "^1.12.0"
+    "nodemon": "^1.12.0",
+    "sequelize-cli": "^3.0.0-2"
   }
 }
