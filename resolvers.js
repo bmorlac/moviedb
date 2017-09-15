@@ -9,29 +9,8 @@ const resolvers = {
         format: 'DVD',
       },
     ],
-    movie: async (obj, { id }) => {
-      let movie;
-      if (id === 42) {
-        movie = await new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              id: 42,
-              name: "The Hitchhiker's Guide to the Galaxy",
-              releasedAt: new Date(),
-              addedAt: new Date(),
-              format: 'BLURAY',
-            });
-          }, 3000);
-        });
-      } else {
-        movie = {
-          id: 4711,
-          name: 'some movie',
-          releasedAt: new Date(),
-          addedAt: new Date(),
-          format: 'DVD',
-        };
-      }
+    movie: (obj, { id }, { models }) => {
+      const movie = models.Movie.findOne({ where: { id } });
       console.log(movie);
       return movie;
     },

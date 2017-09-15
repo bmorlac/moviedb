@@ -19,7 +19,10 @@ app.use(
   bodyParser.json(),
   graphqlExpress({
     schema,
-    context: { username: 'bmorlac' },
+    context: {
+      models,
+      username: 'bmorlac',
+    },
   }),
 );
 
