@@ -1,10 +1,10 @@
 import chai from 'chai';
 
-import '../src';
+import app from '../src';
 
 describe('GraphQL Queries', () => {
   it('should return 200', (done) => {
-    chai.request('http://localhost:3000')
+    chai.request(app)
       .get('/graphql')
       .query({ query: '{allMovies{id,name}}' })
       .end((err, res) => {
