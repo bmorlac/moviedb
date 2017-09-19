@@ -1,13 +1,16 @@
-import http from 'http';
+import chai from 'chai';
 
 import '../src';
 
 describe('GraphQL Queries', () => {
   it('should return 200', (done) => {
-    http.get('http://localhost:3000/graphql?query={allMovies{id,name}}', (res) => {
-      expect(res.statusCode).to.equal(200);
-      done();
-    });
+    chai.request('http://localhost:3000')
+      .get('/graphql')
+      .query({ query: '{allMovies{id,name}}' })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        done();
+      });
   });
 });
 
