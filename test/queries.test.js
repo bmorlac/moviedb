@@ -9,6 +9,9 @@ describe('GraphQL Queries', () => {
       .query({ query: '{allMovies{id,name}}' })
       .end((err, res) => {
         expect(res).to.have.status(200);
+        expect(res.body.data).to.be.an('object').with.own.property('allMovies');
+        expect(res.body.data.allMovies).to.be.an('array').of.length(1);
+        expect(res.body.data.allMovies[0]).to.have.all.ordered.keys('id', 'name');
         done();
       });
   });
