@@ -1,5 +1,6 @@
 require('babel-core/register');
 
 module.exports = {
+    "config": "./src/config/config.json",
     "models-path": "./src/models"
 }
