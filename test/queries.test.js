@@ -1,7 +1,7 @@
 import chai from 'chai';
 
 import app from '../src';
-import createUmzug from './umzug-helper';
+import createUmzug from '../src/umzug-helper';
 
 let seeders;
 let seeds;

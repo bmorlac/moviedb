@@ -1,6 +1,7 @@
 import Umzug from 'umzug';
+import p from 'path';
 
-import models from '../src/models';
+import models from './models';
 
 export default (path, useStorage) => {
   const { sequelize } = models;
@@ -18,7 +19,7 @@ export default (path, useStorage) => {
           throw new Error('Migration tried to use old style "done" callback. Please upgrade to "umzug" and return a promise instead.');
         },
       ],
-      path,
+      path: p.normalize(`${__dirname}/${path}`),
       pattern: /\.js$/,
     },
 

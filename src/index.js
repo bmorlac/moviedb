@@ -6,11 +6,22 @@ import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import typeDefs from './schema';
 import resolvers from './resolvers';
 import models from './models';
+import BootStrap from './init';
 
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
+
+const context = {
+  models,
+  username: 'bmorlac',
+};
+
+const env = process.env.NODE_ENV || 'development';
+if (env === 'development') {
+  BootStrap.init(context);
+}
 
 const app = express();
 
@@ -19,10 +30,7 @@ app.use(
   bodyParser.json(),
   graphqlExpress({
     schema,
-    context: {
-      models,
-      username: 'bmorlac',
-    },
+    context,
   }),
 );
 
